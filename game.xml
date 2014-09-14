@@ -1,42 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <ws>
     <settings>
-        <stage width="900px" height="460px" create="yes" center="yes" resize="no" />
+        <stage width="1920px" height="1080px" create="yes" center="yes" resize="yes" />
         <triggers>
             <trigger name="game_menu_key_trigger" event="keyup" key="ESCAPE" function="savegames" />
-            <trigger name="next_on_right" event="keyup" key="RIGHT_ARROW" special="next" />
             <trigger name="next_on_space" event="keyup" key="SPACE" special="next" />
-            <trigger name="sub_scene_by_key" event="keyup" key="UP_ARROW" sub="custom_event_scene" />
         </triggers>
         <setting name="host.stage.resize" value="true" />
         <setting name="host.inspector.enable" value="true" />
     </settings>
     <assets>
-        <textbox name="tb_main" x="5px" y="355px" width="890px" height="100px"></textbox>
-        <textbox name="tb_top" x="0" y="0" z="30000" width="100%" height="100%" cssid="bla"></textbox>
-        
-        <rectangle name="rect" x="20px" y="20px" height="50px" width="100px" color="green" />
+        <textbox name="tb_main" x="20px" y="855px" width="1880px" height="200px" z="1000"></textbox>
             
         <textbox name="tb_nvl" behaviour="nvl" cssid="NvlTb" names="no" 
             width="890px" height="450px" x="5px" y="5px"></textbox>
         
-        <audio name="music" loop="true" fade="true">
-            <track title="legend">
-                <source href="/Desktop/wlegend.mp3" type="mp3" />
-                <source href="/Desktop/wlegend.ogg" type="ogg" />
-            </track>
-        </audio>
-        
+        <character name="ts" textbox="tb_main">
+            <displayname>Цун-Цун</displayname>
+        </character>
+        <character name="gg" textbox="tb_main"></character>
+            <displayname>ГГ</displayname>
         <character name="n" textbox="tb_main"></character>
-        <character name="nn" textbox="tb_top"></character>
         
-        <imagepack name="backgrounds" x="0" y="0" z="0">
-            <image src="assets/images/daytime_clouds_A_01.jpg" name="clouds01" />
-            <image src="assets/images/Evening_clouds_C_01.jpg" name="clouds02" />
-        </imagepack>
+        <background src="assets/images/bg/school_01.jpeg" name="school_01" />
+        <background src="assets/images/bg/school_02.jpeg" name="school_02" />
+        <background src="assets/images/bg/shrine_01.jpg" name="shrine_01" />
+        <background src="assets/images/bg/shrine_02.jpg" name="shrine_02" />
         
-        <imagepack name="backgrounds2" x="0" y="0" z="0">
-            <image src="assets/images/Rainbow_A_01.jpg" name="rainbow" />
+        <background src="assets/images/cg/bento_01.jpg" name="bento" />
+        <background src="assets/images/cg/tsun_on_shrine_steps.jpg" name="shrine_03" />
+        
+        <imagepack name="tsun" x="772px" y="20%" z="0">
+            <image src="assets/images/sprites/sf_pose01_annoyed01.png" name="sf annoyed1" />
+            <image src="assets/images/sprites/sf_pose01_annoyed02.png" name="sf annoyed2" />
+            <image src="assets/images/sprites/sf_pose01_annoyed03.png" name="sf annoyed3" />
+            <image src="assets/images/sprites/sf_pose01_annoyed04.png" name="sf annoyed4" />
+            <image src="assets/images/sprites/sf_pose02_angry01.png" name="sf angry1" />
+            <image src="assets/images/sprites/sf_pose02_angry02.png" name="sf angry2" />
+            <image src="assets/images/sprites/sf_pose02_angry03.png" name="sf angry3" />
+            <image src="assets/images/sprites/sf_pose02_angry04.png" name="sf angry4" />
+            <image src="assets/images/sprites/sf_pose02_angry05.png" name="sf angry5" />
+            <image src="assets/images/sprites/sf_pose03_shy01.png" name="sf shy" />
         </imagepack>
         
         <curtain name="fog"></curtain>
@@ -45,260 +49,182 @@
         
         <button name="sg_button" text="S/L" function="savegames" x="862px" y="320px" z="100000" />
         
-        <animation name="anim">
-            <group>
-                <do asset="backgrounds" action="move" x="-300px" y="-200px" duration="2000" easing="easeOutBounce" />
-                <transform asset="tb_main" property="border-top-width" from="1" to="5" unit="px" />
-            </group>
-            <group>
-                <transform asset="tb_main" property="border-top-width" from="5" to="1" unit="px" />
-                <transform asset="backgrounds" property="left" from="-300" to="0" unit="px" duration="2000" easing="easeOutBounce" />
-            </group>
-            <group>
-                <do asset="backgrounds" action="move" x="-300px" y="0px" duration="2000" easing="easeOutBounce" />
-            </group>
-            <group>
-                <transform asset="backgrounds" property="left" from="-300" to="0" unit="px" duration="2000" easing="easeInQuint" />
-            </group>
-        </animation>
-        
     </assets>
     <scenes>
         
         <scene id="start">
-            <trigger name="next_on_right" action="activate" />
             <trigger name="next_on_space" action="activate" />
-            <trigger name="sub_scene_by_key" action="activate" />
             <trigger name="game_menu_key_trigger" action="deactivate" />
             
-            <show asset="rect" />
-            <show asset="sg_button" />
-            
-            <wait />
-            
-            <hello />
-            
-            <move asset="rect" x="200px" y="200px" />
-            
-            <wait />
-            
-            <choice>
-                <option label="Continue">
-                    <var name="main_menu_choice" value="continue" />
-                </option>
-                <option label="Load">
-                    <var name="main_menu_choice" value="load" />
-                </option>
-            </choice>
-            
-            <show asset="tb_main" />
-            
-            <hide asset="rect" />
-            
-            <globalize name="main_menu_choice" />
-            <global name="globals_test" value="worked" />
-            
+            <show asset="school_01" duration="400" />
+            <show asset="tb_main" duration="400" />
             <line s="n">
-                Your choice: {$main_menu_choice}<br />
-                Your choice as global: {$$main_menu_choice}<br />
-                Globals test: {$$globals_test}
+            Я почти всегда обедаю один.
             </line>
-            
-            <show asset="tb_top" />
-            
-            <line s="nn">
-                WebStoryEngine Docs: <a href="http://webstoryengine.org" target="_blank">Click here</a>
-            </line>
-            
-            <hide asset="tb_top" />
-            
             <line s="n">
-                Localize (before): {$globals_test}
+            Не то чтобы у меня не было друзей, не то чтобы мне было совсем не с кем кушать... Просто мне так нравится.
             </line>
-            
-            <localize name="globals_test" />
-            
             <line s="n">
-                Localize (after): {$globals_test}
+            Конечно, когда мне предлагают: «Эй, ГГ, пообедай с нами!» — я соглашаюсь, однако мне всё же спокойнее есть в одиночестве.
             </line>
-            
-            <hide asset="tb_main" />
-            <clear asset="tb_main" />
-            <trigger name="game_menu_key_trigger" action="activate" />
-            
-            <goto scene="game_start" />
-        </scene>
-        
-        <scene id="game_start">
-            
-            <var ifstate="set" name="increase_test" action="print" />
-            
-            <line s="n" stop="false">
-                Welcome to the WebStory Engine demo!
-            </line>
-            
-<!--             <alert title="A test alert" message="This is a test alert!" /> -->
-            <var name="demo_started" value="true" />
-            <var ifstate="unset" name="increase_test" value="0" />
-            
-            <set asset="backgrounds" image="clouds02" duration="0" />
-            <set asset="music" track="legend" />
-            
-            <wait />
-            
-            <play asset="music" />
-            <show asset="backgrounds" duration="500" />
-            <show asset="tb_main" effect="slide" direction="bottom" easing="easeOutBounce"  />
-            
-            <wait />
-            <wait duration="1000" /> <!-- Waits another second after all effects are finished. -->
-            
-            <prompt title="Who are you?" message="Please enter your name:" var="player_name" />
-            
-             <wait />
-             
-             <line s="n">Hello, {$player_name}!</line>
-            
-            <confirm title="Really?" message="Is this really your name? Are you sure?" var="player_name_is_correct" />
-            
-            <wait />
-            
-            <prompt ifvar="player_name_is_correct" ifvalue="false" title="What's your REAL name?"
-                message="Please enter your real name now. Don't lie! Lies are bad." var="player_name" />
-            
-            <wait />
-            
-            <line s="n">Hello again, {$player_name}!</line>
-            
-            <flash asset="flash" duration="500" />
-            
-            <wait />
-            
-            <hide asset="tb_main" effect="slide" direction="bottom" />
-            
-            <wait />
-            
-            <show asset="tb_main" effect="slide" direction="bottom" easing="easeOutBounce" />
-            <var name="increase_test" action="increase" />
-            
             <line s="n">
-                The increase_test variable is {$increase_test}.
+            Во многом благодаря моему особому месту для трапезы.
             </line>
-            
-            <flicker asset="flash" duration="2000" times="10" opacity="0.5" />
-            
-            <wait />
-            
-            <var name="increase_test" action="decrease" />
-            
+            <hide asset="school_01" />
+            <show asset="school_02" duration="400" />
             <line s="n">
-                Variable decreased. The increase_test variable is {$increase_test}.
+            Рядом с нашей школой есть небольшой храм, довольно милый и чистый — всегда можно отдохнуть.
             </line>
-            
-            <stop asset="music" />
-            <start asset="anim" />
-            
-            <sub scene="sub_scene_test" />
-            <var name="increase_test" action="increase" />
-            <clear asset="tb_main" />
-            
             <line s="n">
-                To start, click on the screen or press <b>space</b> / <b>right arrow</b> key.
+            Как так вышло, что святилище оказалось рядом со школой, мне не ясно, однако с тех пор, как я проникся его тишиной и спокойствием, я обедаю только там.
             </line>
-            
-            <hide asset="tb_main" effect="slide" direction="bottom" />
-            
-            <wait />
-            
-            <show asset="tb_main" effect="slide" direction="bottom" easing="easeOutBounce" />
-            
-            <line s="n" stop="false">
-                What are you interested in?
-            </line>
-            
-            <choice>
-                <option label="I want to learn more!">
-                    <var name="learn_more_pressed" value="true" />
-                </option>
-                <option label="No, thanks.">
-                    <var name="learn_more_pressed" value="false" />
-                </option>
-            </choice>
-            
-            <line s="n" ifvar="learn_more_pressed" ifvalue="true">
-                You want to learn more.
-            </line>
-            
-            <line s="n" ifvar="learn_more_pressed" ifvalue="false">
-                You don't want to learn more.
-            </line>
-            
-            <goto scene="restart" />
-        </scene>
-        
-        <scene id="sub_scene_test">
-            <wait />
-            <show asset="fog" effect="slide" direction="right" />
-            
-            <wait />
-            
-            <set asset="backgrounds2" image="rainbow" duration="0" />
-            <show asset="backgrounds2" duration="0" />
-            
-            <wait />
-            
-            <hide asset="fog" effect="slide" direction="right" />
-            
-            <wait />
-            
             <line s="n">
-                Hello from the sub scene!
+            Шелест листьев, лёгкий ветерок, а главное — туда редко ходят другие ученики. Может, им лень?
             </line>
-            
-            <fn name="savegames" />
-            
+            <hide asset="school_02" />
+            <show asset="shrine_02" duration="400" />
             <line s="n">
-                A sub scene is a scene that is called from within another scene, but
-                not using the goto command; instead the sub command is used.
+            Вот и сегодня...
             </line>
-            
+            <line s="gg">
+            «Как же вкусно я сегодня пообедаю!»
+            </line>
             <line s="n">
-               That means that after all of the sub scenes commands have been executed,
-               the story continues from the point where the sub scene was called.
+            Так я думал, идя в сторону храма.
             </line>
-            
-            <line s="n">Let's go even one level deeper...</line>
-            
-            <sub scene="sub_scene_test_2" />
-            
-            <line s="n">And now we are back at the first sub scene.</line>
-            
-            <hide asset="backgrounds2" duration="500" />
-        </scene>
-        
-        <scene id="sub_scene_test_2">
             <line s="n">
-                This line is part of another sub scene called from within the previous sub scene.
+            Невозможно передать словами, как мучительно каждый день есть только рис. Даже без маринованной сливы! Я даже не могу отдать дань флагу своей страны!
             </line>
-        </scene>
-        
-        <scene id="custom_event_scene">
             <line s="n">
-                A custom event has been triggered.
+            Но сегодня, впервые за две недели, я наконец-то собрался поесть по-человечески.
             </line>
-        </scene>
-        
-        <scene id="restart">
-            <hide asset="backgrounds" duration="1000" />
-            
+            <line s="n">
+            Только-только я собрался повернуть за угол, и тут...
+            </line>
+            <hide asset="shrine_02" />
+            <flash asset="shrine_03" duration="1000" />
+            <show asset="shrine_01" />
+            <line s="gg">
+            «Там кто то есть!»
+            </line>
+            <line s="n">
+            Я поспешно ретировался. Затем — осторожно выглянул.
+            </line>
+            <hide asset="shrine_01" />
+            <show asset="shrine_03" duration="200" />
+            <line s="n">
+            Эти волосы и форма... Девушка.
+            </line>
+            <line s="n">
+            Но почему она здесь? Это же моё место!
+            </line>
+            <line s="n">
+            Никогда её не видел. Может, новенькая? Наверное, из другого класса.
+            </line>
+            <line s="n">
+            Хотя, нет ничего удивительного в том, что я её не знаю.
+            </line>
+            <line s="n">
+            Мне даже имена одноклассников не все известны, не говоря уже о других классах.
+            </line>
+            <line s="n">
+            Пытаясь получше рассмотреть, я сам не заметил, как моя коробочка с довольно звучным грохотом упала на землю.
+            </line>
+            <wait duration="200" />
+            <hide asset="shrine_03" />
+            <show asset="shrine_01" duration="300" />
+            <line s="n">
+            Она не раскрылась, слава богу. Но звук был достаточно громкий — она могла услышать!
+            </line>
+            <line s="n">
+            Я стоял за углом, прислонившись к стене и затаив дыхание.
+            </line>
+            <line s="n">
+            Чего я так волнуюсь?
+            </line>
+            <line s="n">
+            Стоп.
+            </line>
+            <line s="n">
+            А вдруг она сочтёт меня извращенцем, которому нравится есть, смотря на девушек!?
+            </line>
+            <line s="n">
+            Тогда она наверняка нажалуется учителю! Это наверняка запишут в личное дело!! Я больше никуда не смогу поступить!! Вся жизнь будет сломана из-за одного пустяка!!!
+            </line>
+            <line s="n">
+            Шучу, шучу. Ещё никого не исключали из школы за обед.
+            </line>
+            <line s="n">
+            Однако, одного из наших, не могу вспомнить его имени, ждала жестокая судьба лишь за то, что он по ошибке зашёл в женский туалет.
+            </line>
+            <line s="n">
+            Тогда был большой скандал, раздутый непонятно из чего.
+            </line>
+            <line s="n">
+            Хороший был парень...
+            </line>
+            <line s="n">
+            <em>Был.</em>
+            </line>
+            <line s="n">
+            Эту девчонку я не знаю, как и не знаю того, на что она способна.
+            </line>
+            <line s="n">
+            Если я буду неосторожен, она вполне может придумать себе чего-то, а позорное клеймо останется со мной до конца школы, а может и жизни.
+            </line>
+            <line s="n">
+            Попробовать объясниться, сказать: «Извините, но я обычно здесь кушаю»?
+            </line>
+            <line s="n">
+            Вариант хороший, но, опять же, я не знаю, будет ли она вообще меня слушать.
+            </line>
+            <line s="n">
+            Но что более важно — я не могу ещё две недели есть только рис!
+            </line>
+            <line s="n">
+            Нормально я могу покушать только раз в две недели, когда родители высылают мне немного денег. Тогда я готовлю себе знатный обед в школу.
+            </line>
+            <line s="n">
+            Теперь я жалею. Почему я не закатил пирушку дома? Зачем тащить такое сокровище в школу?! Мне придётся давиться этой дешёвой сдобной булкой! Лучше уж быть извращенцем.
+            </line>
+            <line s="n">
+            Так. Спокойно. Надо линять отсюда.
+            </line>
+            <hide asset="shrine_01" />
+            <show asset="bento" duration="500" />
+            <line s="n">
+            Но как я оставлю тут свою коробочку? На ней ведь написано моё имя! Стопроцентная улика!
+            </line>
+            <line s="n">
+            Да и к тому же... Она девчачья! Розовая в цветочек!
+            </line>
+            <line s="n">
+            Спасибо, сестра. Я не просто опозорюсь. Мальчик с розовой коробочкой, да уж.
+            </line>
+            <wait duration="700"/>
+            <hide asset="bento" />
+            <show asset="shrine_01" duration="300" />
+            <line s="n">
+            Тут я представил, как через школьный микрофон сообщили: «ГГ, потерявший розовую коробочку. Зайдите в учительскую».
+            </line>
+            <line s="n">
+            Мои одноклассники относятся с пониманием к тому, что у меня другой нет, но остальная школа ведь не знает!
+            </line>
+            <line s="n">
+            К тому же, вряд ли она её не заметит, когда будет уходить!
+            </line>
+            <line s="n">
+            А вдруг она ничего не слышала? Тогда просто возьму её и смоюсь.
+            </line>
+            <line s="n">
+            А если она наблюдает? Тогда надо просто убежать от сюда, а про коробочку скажу: «Потерял, спасибо, что нашли».
+            </line>
+            <line s="n">
+            Как же поступить?
+            </line>
+            <hide asset="shrine_01" />
             <wait />
             
-            <clear asset="tb_main" />
-            <move asset="backgrounds" x="0" y="0" duration="0" />
-            <stop asset="sounds" />
-            <stop asset="anim" />
-            
-            <wait />
             
             <restart />
         </scene>
