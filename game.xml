@@ -10,7 +10,7 @@
         <setting name="host.inspector.enable" value="true" />
     </settings>
     <assets>
-        <textbox name="tb_main" x="20px" y="855px" width="1880px" height="200px"></textbox>
+        <textbox name="tb_main" x="20px" y="855px" width="1880px" height="200px" z="1000"></textbox>
             
         <textbox name="tb_nvl" behaviour="nvl" cssid="NvlTb" names="no" 
             width="890px" height="450px" x="5px" y="5px"></textbox>
@@ -19,7 +19,7 @@
             <displayname>Цун-Цун</displayname>
         </character>
         <character name="gg" textbox="tb_main"></character>
-            <displayname>ОЯШ</displayname>
+            <displayname>ГГ</displayname>
         <character name="n" textbox="tb_main"></character>
         
         <background src="assets/images/bg/school_01.jpeg" name="school_01" />
@@ -30,7 +30,7 @@
         <background src="assets/images/cg/bento_01.jpg" name="bento" />
         <background src="assets/images/cg/tsun_on_shrine_steps.jpg" name="shrine_03" />
         
-        <imagepack name="ts" x="772px" y="20%" z="0">
+        <imagepack name="tsun" x="772px" y="20%" z="0">
             <image src="assets/images/sprites/sf_pose01_annoyed01.png" name="sf annoyed1" />
             <image src="assets/images/sprites/sf_pose01_annoyed02.png" name="sf annoyed2" />
             <image src="assets/images/sprites/sf_pose01_annoyed03.png" name="sf annoyed3" />
@@ -57,6 +57,7 @@
             <trigger name="game_menu_key_trigger" action="deactivate" />
             
             <show asset="school_01" duration="400" />
+            <show asset="tb_main" duration="400" />
             <line s="n">
             Я почти всегда обедаю один.
             </line>
@@ -69,6 +70,7 @@
             <line s="n">
             Во многом благодаря моему особому месту для трапезы.
             </line>
+            <hide asset="school_01" />
             <show asset="school_02" duration="400" />
             <line s="n">
             Рядом с нашей школой есть небольшой храм, довольно милый и чистый — всегда можно отдохнуть.
@@ -79,6 +81,7 @@
             <line s="n">
             Шелест листьев, лёгкий ветерок, а главное — туда редко ходят другие ученики. Может, им лень?
             </line>
+            <hide asset="school_02" />
             <show asset="shrine_02" duration="400" />
             <line s="n">
             Вот и сегодня...
@@ -98,7 +101,8 @@
             <line s="n">
             Только-только я собрался повернуть за угол, и тут...
             </line>
-            <flash asset="shrine_03" duration="700" />
+            <hide asset="shrine_02" />
+            <flash asset="shrine_03" duration="1000" />
             <show asset="shrine_01" />
             <line s="gg">
             «Там кто то есть!»
@@ -106,6 +110,7 @@
             <line s="n">
             Я поспешно ретировался. Затем — осторожно выглянул.
             </line>
+            <hide asset="shrine_01" />
             <show asset="shrine_03" duration="200" />
             <line s="n">
             Эти волосы и форма... Девушка.
@@ -126,6 +131,7 @@
             Пытаясь получше рассмотреть, я сам не заметил, как моя коробочка с довольно звучным грохотом упала на землю.
             </line>
             <wait duration="200" />
+            <hide asset="shrine_03" />
             <show asset="shrine_01" duration="300" />
             <line s="n">
             Она не раскрылась, слава богу. Но звук был достаточно громкий — она могла услышать!
@@ -184,6 +190,7 @@
             <line s="n">
             Так. Спокойно. Надо линять отсюда.
             </line>
+            <hide asset="shrine_01" />
             <show asset="bento" duration="500" />
             <line s="n">
             Но как я оставлю тут свою коробочку? На ней ведь написано моё имя! Стопроцентная улика!
@@ -195,6 +202,7 @@
             Спасибо, сестра. Я не просто опозорюсь. Мальчик с розовой коробочкой, да уж.
             </line>
             <wait duration="700"/>
+            <hide asset="bento" />
             <show asset="shrine_01" duration="300" />
             <line s="n">
             Тут я представил, как через школьный микрофон сообщили: «ГГ, потерявший розовую коробочку. Зайдите в учительскую».
@@ -214,7 +222,7 @@
             <line s="n">
             Как же поступить?
             </line>
-            
+            <hide asset="shrine_01" />
             <wait />
             
             
