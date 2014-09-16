@@ -222,11 +222,119 @@
             <line s="n">
             Как же поступить?
             </line>
+            <choice>
+                <option label="Будь что будет, я есть хочу">
+                    <var name="run_away" value="false"/>
+                </option>
+                <option label="Оставить бенто, честь дороже желудка">
+                    <var name="run_away" value="true"/>
+                </option>
+            </choice>
+            
+            <line s="n" ifvar="run_away" ifvalue="true">
+            Сдобная булка. Великолепно. Позор на всю школу. Отлично. Зато я не извращенец.
+            </line>
+            <line s="gg" ifvar="run_away" ifvalue="true">
+            Заткнись!
+            </line>
+            <line s="n" ifvar="run_away" ifvalue="true">
+            Сдобная булка. Великолепно. Позор на всю школу. Отлично. Зато я не извращенец.
+            </line>
+            <goto scene="work_togeather" ifvar="run_away" ifvalue="true" />
+            
+            <line s="n">
+            Нужно сделать это быстро. Я быстро дотянулся до неё, и когда уже был готов, как пружина, вернутся с артефактом на исходную позицию, меня пробрала дрожь.
+            </line>
+            <set asset="tsun" image="sf angry3" />
+            <show asset="tsun" duration="300" />
+            <line s="ts">
+            Что ты здесь делаешь?
+            </line>
+            <line s="n">
+            Блин, если я сейчас сбегу, это точно будет выглядеть как побег с места преступления. Я должен ответить.
+            </line>
+            <line s="gg">
+            Я- ГГ. А как вас зовут?
+            </line>
+            <line s="ts">
+            <set asset="tsun" image="sf angry5" duration="300"/>
+            Отвечай на вопрос!
+            </line>
+            <line s="n">
+            Она становилась всё злее. Я встал с колен и выпрямился. Передо мной была девушка примерно моего возраста в женской форме нашей школы. У неё было два хвостика, а так же очень злое лицо.
+            </line>
+            <set asset="tsun" image="sf angry1" duration="300"/>
+            <line s="ts">
+            И моё имя тебя не касается.
+            </line>
+            <set asset="tsun" image="sf angry2" duration="300"/>
+            <line s="ts">
+            Говори!
+            </line>
+            <line s="n">
+            Отмазка, отмазка. Нужно было срочно что-нибудь придумать, и я выдал:
+            </line>
+            <line s="gg">
+            Я искал место, где по тише, что бы покушать. Я обронил свою коробочку, и хотел её поднять, когда вы окликнули меня.
+            </line>
+            <line s="n">
+            Вроде хорошая отмазка. Поведётся? Ведь это чистая правда!
+            </line>
+            <set asset="tsun" image="sf annoyed4" duration="300"/>
+            <line s="ts">
+            Хорошо. Я поверю тебе, но при одном условии. На следующей перемене приходи к учительской, там тебя проинструктируют.
+            </line>
+            <set asset="tsun" image="sf annoyed1" duration="300"/>
+            <line s="ts">
+            Отговорки не принимаются! А то какой то подозрительный. Ходишь тут, коробочки роняешь.
+            </line>
+            <line s="n">
+            Она собралась уходить, прихватив с собой свою коробочку. Она, что, тут кушала? Ой, я же не знаю её имени!
+            </line>
+            <line s="gg">
+            А как тебя зовут?
+            </line>
+            <set asset="tsun" image="sf annoyed4" duration="300"/>
+            <line s="ts">
+            Дурак! Не на ТЫ же!
+            </line>
+            <line s="n">
+            Она сникла.
+            </line>
+            <line s="gg">
+            Меня - ГГ.
+            </line>
+            <set asset="tsun" image="sf shy" duration="300"/>
+            <line s="ts">
+            Цун-цун меня зовут. Заруби на носу- ко мне обращаться только на ВЫ! Запомнил?
+            </line>
+            <line s="gg">
+            Да.
+            </line>
+            <set asset="tsun" image="sf annoyed3" duration="300"/>
+            <line s="ts">
+            На следующей перемене. Учительская. Не придёшь- найду и измочалю! 
+            </line>
+            <hide asset="tsun" duration="300" />
+            <line s="n">
+            А она быстро бегает.
+            </line>
+            <line s="n">
+            Через минуту был звонок. Я так и не успел поесть.
+            </line>
+            <line s="gg">
+            Охх…
+            </line>
             <hide asset="shrine_01" />
-            <wait />
+            <goto scene="work_togeather" />
             
             
             <restart />
+        </scene>
+        
+        <scene id="work_togeather">
+            <wait />
+            <restaert />
         </scene>
         
     </scenes>
