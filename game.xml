@@ -18,8 +18,9 @@
         <character name="ts" textbox="tb_main">
             <displayname>Цун-Цун</displayname>
         </character>
-        <character name="gg" textbox="tb_main"></character>
+        <character name="gg" textbox="tb_main">
             <displayname>ГГ</displayname>
+        </character>
         <character name="n" textbox="tb_main"></character>
         
         <background src="assets/images/bg/school_01.jpeg" name="school_01" />
@@ -30,7 +31,7 @@
         <background src="assets/images/cg/bento_01.jpg" name="bento" />
         <background src="assets/images/cg/tsun_on_shrine_steps.jpg" name="shrine_03" />
         
-        <imagepack name="tsun" x="772px" y="20%" z="0">
+        <imagepack name="tsun" x="772px" y="20%" z="999">
             <image src="assets/images/sprites/sf_pose01_annoyed01.png" name="sf annoyed1" />
             <image src="assets/images/sprites/sf_pose01_annoyed02.png" name="sf annoyed2" />
             <image src="assets/images/sprites/sf_pose01_annoyed03.png" name="sf annoyed3" />
@@ -237,9 +238,6 @@
             <line s="gg" ifvar="run_away" ifvalue="true">
             Заткнись!
             </line>
-            <line s="n" ifvar="run_away" ifvalue="true">
-            Сдобная булка. Великолепно. Позор на всю школу. Отлично. Зато я не извращенец.
-            </line>
             <goto scene="work_togeather" ifvar="run_away" ifvalue="true" />
             
             <line s="n">
@@ -334,7 +332,7 @@
         
         <scene id="work_togeather">
             <wait />
-            <restaert />
+            <restart />
         </scene>
         
     </scenes>
