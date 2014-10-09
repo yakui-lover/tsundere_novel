@@ -31,6 +31,10 @@
         <background src="assets/images/bg/shrine_01.jpg" name="shrine_01" />
         <background src="assets/images/bg/shrine_02.jpg" name="shrine_02" />
         
+        <background src="assets/images/bg/s corridor_01.jpg" name="corridor" />
+        <background src="assets/images/bg/ staffroom_01.jpg" name="staffroom" />
+        
+        
         <background src="assets/images/cg/bento_01.jpg" name="bento" />
         <background src="assets/images/cg/tsun_on_shrine_steps.jpg" name="shrine_03" />
         
@@ -244,6 +248,7 @@
             <line s="gg" ifvar="run_away" ifvalue="true">
             Заткнись!
             </line>
+            <hide asset="shrine_01"  ifvar="run_away" ifvalue="true" />
             <goto scene="work_togeather" ifvar="run_away" ifvalue="true" />
             
             <line s="n">
@@ -329,15 +334,14 @@
             <line s="gg">
             Охх…
             </line>
-            <hide asset="shrine_01" />
-            <goto scene="work_togeather" />
-            
-            
+            <hide asset="shrine_01" duration="300" />
+
             <restart />
         </scene>
         
         <scene id="work_togeather">
             <wait />
+            <show asset="school_01" duration="300" />
             <line s="n">
             У меня болит живот.
             </line>
@@ -345,7 +349,7 @@
             Может быть виновата наша национальная кухня? Кушаем мы мало, но с расписанием, поэтому организм получает все необходимые ему вещества- эта система была рассчитана опытом предков, и выверена красивыми жёнами      
             </line>
             <line s="n">
-            Это удобно- кушать мало, и при этом не умирать. Одно лишь плохо- пропустишь приём пищи, и последствия не заставят себя ждать.
+            Это удобно - кушать мало, и при этом не умирать. Одно лишь плохо- пропустишь приём пищи, и последствия не заставят себя ждать.
             </line>
             <line s="n">
             А если ты перед этим и так питался одним рисом!? Я правда не понимаю, как я ещё могу сохранять божеский вид на такой диете- ведь рис содержит далеко не все необходимые микроэлементы.
@@ -359,6 +363,7 @@
             <line s="n">
             К сожалению, всё что я смог извлечь из этой, довольно вкусной кстати, булочки- лишь ощущение сухости, им насытиться я не мог.…
             </line>
+            <hide asset="school_01" duration="100" />
             <line s="gg">
             Грррр…
             </line>
@@ -372,10 +377,10 @@
             Я не видел, потому что уткнул лицо в парту, но скорее всего весь класс сейчас повернулся ко мне. Хорошо, наказывайте меня за что-нибудь, только скорее. Мне ещё страдать тут пару уроков. Я поднял руку.
             </line>
             <line s="gg">
-            Я-ГГ.
+            Я - ГГ.
             </line>
             <line s="n">
-            Я даже не посмотрел в сторону интересовавшегося- голос доносился со стороны входа в класс, и он был женский. Кстати, то что было дальше стало для меня неожиданностью.
+            Я даже не посмотрел в сторону интересовавшегося-  голос доносился со стороны входа в класс, и он был женский. Кстати, то что было дальше стало для меня неожиданностью.
             </line>
             <line s="n">
             А именно то, что меня ка-а-к долбанут по голове, и при этом:
@@ -383,6 +388,8 @@
             <line s="ts">
             Пошли! Дело есть.
             </line>
+            <set asset="tsun" image="sf angry1" />
+            <show asset="tsun" duration="300" />
             <line s="n">
             Я посмотрел в сторону обидчицы. Кого-то она мне напоминает.
             </line>
@@ -392,11 +399,17 @@
             <line s="n">
             Ах, да! Это же та девушка! Может, она вернёт мне мой обед?
             </line>
+            <set asset="tsun" image="sf angry3" duration="300" />
             <line s="ts">
-            Моё имя- Цун-цун! Запомни хорошенько!
+            Моё имя - Цун-цун! Запомни хорошенько!
             </line>
             <line s="n">
-            Тут она хватанула меня за руку и потащила за собой. Через секунду мы были около двери в учительскую. Повсюду были расставлены коробки. Очень много коробок.
+            Тут она хватанула меня за руку и потащила за собой. 
+            </line>
+            <hide asset="tsun" duration="200" />
+            <show asset="corridor" duration="300" />
+            <line s="n">
+            Через секунду мы были около двери в учительскую. Повсюду были расставлены коробки. Очень много коробок.
             </line>
             <line s="n">
             Так, а вот это уже пугает. Ученик, учительская, ничего хорошего. Она открыла дверь.
@@ -407,6 +420,8 @@
             <line s="n">
             Ну, я и зашёл. Без страха, готовый умереть. Мне только катаны не хватает.
             </line>
+            <hide asset="corridor" duration="200" />
+            <show asset="staffroom" duration="300" />
             <line s="n">
             В учительской сидела наша учительница- молодая и красивая, как всегда. Наш класс её любил. Меня же больше интересовала небольшая вещь, лежащая на столе. В этой вещи лежала вкуснятина- мною лично приготовленная.
             </line>
@@ -434,9 +449,12 @@
             <line s="ss">
             Поблагодари Цун-цун. Это она её нашла.
             </line>
+            <set asset="tsun" image="sf annoyed1" />
+            <show asset="tsun" duration="300" />
             <line s="ts">
             Было бы за что стараться.
             </line>
+            <set asset="tsun" image="sf annoyed1" duration="300" />
             <line s="ts">
             Кстати, место где я её нашла…
             </line>
@@ -446,9 +464,11 @@
             <line s="gg">
             Спасибо, что спасла меня от голода!
             </line>
+            <set asset="tsun" image="sf shy" duration="300" />
             <line s="ts">
             Ч-что ты… Хм! В любом случае постарайся быть осторожнее! Нельзя мусорить!
             </line>
+            <hide asset="tsun" duration="200" />
             <line s="n">
             Она отвернулась. Странно. Она даже не уколола меня за расцветку. Ну, спасибо.
             </line>
@@ -504,6 +524,8 @@
             <line s="ss" ifvar="work_today" ifvalue="false">
             Нет проблем. Вернётся кто-нибудь из совета, им отдам.
             </line>
+            <set asset="tsun" image="sf anoyed4" ifvar="work_today" ifvalue="false" />
+            <show asset="tsun" duration="300" ifvar="work_today" ifvalue="false" />
             <line s="ts" ifvar="work_today" ifvalue="false">
             Кстати, ГГ.
             </line>
@@ -519,9 +541,11 @@
             <line s="g" ifvar="work_today" ifvalue="false">
             Сестры, очень качественная, кстати.
             </line>
+            <hide asset="tsun" duration="200" ifvar="work_today" ifvalue="false" />
             <line s="n" ifvar="work_today" ifvalue="false">
             Выйдя из учительской, мы разошлись.
             </line>
+            <hide asset="staffroom" duration="200" />
             <restart />
         </scene>
         
