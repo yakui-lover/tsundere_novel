@@ -31,8 +31,8 @@
         <background src="assets/images/bg/shrine_01.jpg" name="shrine_01" />
         <background src="assets/images/bg/shrine_02.jpg" name="shrine_02" />
         
-        <background src="assets/images/bg/s corridor_01.jpg" name="corridor" />
-        <background src="assets/images/bg/ staffroom_01.jpg" name="staffroom" />
+        <background src="assets/images/bg/corridor_01.jpg" name="corridor" />
+        <background src="assets/images/bg/staffroom_01.jpg" name="staffroom" />
         
         
         <background src="assets/images/cg/bento_01.jpg" name="bento" />
@@ -454,7 +454,7 @@
             <line s="ts">
             Было бы за что стараться.
             </line>
-            <set asset="tsun" image="sf annoyed1" duration="300" />
+            <set asset="tsun" image="sf annoyed3" duration="300" />
             <line s="ts">
             Кстати, место где я её нашла…
             </line>
@@ -497,7 +497,7 @@
                 <option label="Постараться сегодня">
                     <var name="work_today" value="true"/>
                 </option>
-                <option label="ОПостараться завтра">
+                <option label="Постараться завтра">
                     <var name="work_today" value="false"/>
                 </option>
             </choice>
